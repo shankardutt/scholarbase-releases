@@ -1,0 +1,47 @@
+name: Report a problem
+description: Something in ScholarBase Local doesn't work as expected.
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Shown in the window title, e.g. "ScholarBase Local 1.8.0".
+      placeholder: "1.8.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Computer
+      options:
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Windows
+        - Linux
+    validations:
+      required: true
+  - type: input
+    id: os-version
+    attributes:
+      label: Operating system version
+      placeholder: "macOS 15.4 / Windows 11 / Ubuntu 24.04"
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead. Screenshots help.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log file (optional)
+      description: |
+        The last lines of `scholarbase.log` from the app's `logs` folder:
+        - macOS: `~/Library/Application Support/ScholarBase-Local/logs`
+        - Windows: `%APPDATA%\ScholarBase-Local\logs`
+        - Linux: `~/.local/share/ScholarBase-Local/logs`
+
+        It can contain publication titles and author names, so look through it first. Never paste API keys.
+      render: text
